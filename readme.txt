@@ -27,6 +27,7 @@ This plugin uses AIM and is light weight version of https://wordpress.org/plugin
 7. This plugin currently **Supports accepting in USD**.
 8. This plugin **does not store Credit Card Details**.
 9. MD5 Hash not neccesary as this plugin uses AIM http://developer.authorize.net/faqs/#md5
+10. Switch beetween Authorize or Authorize and Capture.
 
 
 == Screenshots ==
@@ -58,7 +59,8 @@ This plugin uses AIM and is light weight version of https://wordpress.org/plugin
 9. This plugin does not support Pre Order or Subscriptions 
 10. This plugin does not support Refunds in woocommmerce interface
 == Changelog ==
-This is first version no known errors found this is a replacement for https://wordpress.org/plugins/authorizenet-woocommerce-addon/  That shows Error Connecting Authorize.Net
+Error Connecting Authorize.Net on some servers
+This is a replacement for https://wordpress.org/plugins/authorizenet-woocommerce-addon/  That shows Error Connecting Authorize.Net
 
 == Upgrade Notice == 
 This is first version no known notices yet

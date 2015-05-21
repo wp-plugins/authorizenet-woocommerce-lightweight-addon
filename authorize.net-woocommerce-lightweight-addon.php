@@ -31,19 +31,23 @@ function authorizenet_lightweight_init()
 		$this->id               = 'authorizenetlightweight';
 		$this->icon             = apply_filters( 'woocommerce_authorizenet_lightweight_icon', plugins_url( 'images/authorizenet_lightweight.png' , __FILE__ ) );
 		$this->has_fields       = true;
-		$this->method_title     = 'Authorize.Net Cards Settings';		
+		$this->method_title     = 'Authorize.Net Lightweight Cards Settings';		
 		$this->init_form_fields();
 		$this->init_settings();
 		$this->title			           = $this->get_option( 'authorizenet_lightweight_title' );
 		$this->authorizenet_lightweight_apilogin        = $this->get_option( 'authorizenet_lightweight_apilogin' );
 		$this->authorizenet_lightweight_transactionkey  = $this->get_option( 'authorizenet_lightweight_transactionkey' );
 		$this->authorizenet_lightweight_sandbox         = $this->get_option( 'authorizenet_lightweight_sandbox' ); 
+		$this->authorizenet_lightweight_authorize_only  = $this->get_option( 'authorizenet_lightweight_authorize_only' ); 
+		
 		$this->authorizenet_lightweight_liveurl         = 'https://secure.authorize.net/gateway/transact.dll';
           $this->authorizenet_lightweight_testurl         = 'https://test.authorize.net/gateway/transact.dll';
          
          
          
 		define("AUTHORIZE_NET_SANDBOX", ($this->authorizenet_lightweight_sandbox =='yes'? true : false));
+		define("TRANSACTION_MODE"     , ($this->authorizenet_lightweight_authorize_only =='yes'? 'AUTH_ONLY':'AUTH_CAPTURE'));
+		
 
 		add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
 
@@ -103,10 +107,22 @@ function authorizenet_lightweight_init()
 			'authorizenet_lightweight_sandbox' => array(
 			  'title'       => __( 'Authorize.Net sandbox', 'woocommerce' ),
 			  'type'        => 'checkbox',
-			  'label'       => __( 'Enable Authorize.Net sandbox', 'woocommerce' ),
+			  'label'       => __( 'Enable Authorize.Net sandbox (Live Mode if Unchecked)', 'woocommerce' ),
+			  'description' => __( 'If checked its in sanbox mode and if unchecked its in live mode', 'woocommerce' ),
+			  'desc_tip'      => true,
 			  'default'     => 'no',
-			  'description' => __( 'If checked its in sanbox mode and if unchecked its in live mode', 'woocommerce' )
-			)
+			),
+			
+			
+			'authorizenet_lightweight_authorize_only' => array(
+			 'title'       => __( 'Authorize Only', 'woocommerce' ),
+			 'type'        => 'checkbox',
+			 'label'       => __( 'Enable Authorize Only Mode (Authorize & Capture If Unchecked)', 'wc-authorize-dpm' ),
+			 'description' => __( 'If checked will only authorize the credit card only upon checkout.', 'woocommerce' ),
+			 'desc_tip'      => true,
+			 'default'     => 'no',
+			),
+			
 	  	);
   		}
 		
@@ -167,7 +183,7 @@ function authorizenet_lightweight_init()
 				  'x_delim_data'             => 'TRUE',
 				  'x_delim_char'             => '|',
 				  'x_relay_response'         => 'FALSE',
-				  'x_type'                   => 'AUTH_CAPTURE',
+				  'x_type'                   => TRANSACTION_MODE,
 				  'x_method'                 => 'CC',
 				  'x_card_num'               => sanitize_text_field($_POST['authorizenet_ltwt_cardno']),
 				  'x_exp_date'               => sanitize_text_field($_POST['authorizenet_ltwt_expmonth' ]).sanitize_text_field($_POST['authorizenet_ltwt_expyear' ]),
@@ -192,11 +208,36 @@ function authorizenet_lightweight_init()
 				  'x_ship_to_state'          => $wc_order->shipping_state,
 				  'x_ship_to_zip'            => $wc_order->shipping_postcode,
 				  'x_ship_to_country'        => $wc_order->shipping_country,
-				  'x_customer_ip'		    => $_SERVER['REMOTE_ADDR']
+				  'x_customer_ip'		    => $this->get_client_ip()
 				  
 				   );
         			 return $authorizenet_lightweight_args;
      	 } // End of authorizenet_lightweight_params
+		
+		
+		
+		//Function to check IP
+		function get_client_ip() 
+		{
+			$ipaddress = '';
+			if (getenv('HTTP_CLIENT_IP'))
+				$ipaddress = getenv('HTTP_CLIENT_IP');
+			else if(getenv('HTTP_X_FORWARDED_FOR'))
+				$ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+			else if(getenv('HTTP_X_FORWARDED'))
+				$ipaddress = getenv('HTTP_X_FORWARDED');
+			else if(getenv('HTTP_FORWARDED_FOR'))
+				$ipaddress = getenv('HTTP_FORWARDED_FOR');
+			else if(getenv('HTTP_FORWARDED'))
+				$ipaddress = getenv('HTTP_FORWARDED');
+			else if(getenv('REMOTE_ADDR'))
+				$ipaddress = getenv('REMOTE_ADDR');
+			else
+				$ipaddress = 'UNKNOWN';
+			return $ipaddress;
+		}
+		
+		//End of function to check IP
 		
 		
 		public function process_payment($order_id)
