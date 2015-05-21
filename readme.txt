@@ -1,4 +1,4 @@
-==== Authorize.Net Payment Gateway WooCommerce Addon ====
+==== Authorize.Net Payment Gateway WooCommerce Lightweight Addon ====
 Contributors: nazrulhassanmca
 Plugin Name: Authorize.Net WooCommerce Lightweight Addon
 Plugin URI: https://wordpress.org/plugins/authorizenet-woocommerce-lightweight-addon/

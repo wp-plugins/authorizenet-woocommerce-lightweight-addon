@@ -78,7 +78,7 @@ function authorizenet_lightweight_init()
 			  'title' => __( 'Title', 'woocommerce' ),
 			  'type' => 'text',
 			  'description' => __( 'This controls the title which the buyer sees during checkout.', 'woocommerce' ),
-			  'default' => __( 'Authorize.Net', 'woocommerce' ),
+			  'default' => __( 'Authorize.Net Lightweight', 'woocommerce' ),
 			  'desc_tip'      => true,
 			  ),
 			'authorizenet_lightweight_apilogin' => array(
@@ -172,6 +172,7 @@ function authorizenet_lightweight_init()
 				  'x_card_num'               => sanitize_text_field($_POST['authorizenet_ltwt_cardno']),
 				  'x_exp_date'               => sanitize_text_field($_POST['authorizenet_ltwt_expmonth' ]).sanitize_text_field($_POST['authorizenet_ltwt_expyear' ]),
 				  'x_card_code'              => sanitize_text_field($_POST['authorizenet_ltwt_cardcvv']), 
+				  'x_invoice_num'            => 'Order #'.$wc_order->id,
 				  'x_description'            => 'Order #'.$wc_order->id,
 				  'x_amount'                 => $wc_order->order_total,
 				  'x_first_name'             => $wc_order->billing_first_name ,
