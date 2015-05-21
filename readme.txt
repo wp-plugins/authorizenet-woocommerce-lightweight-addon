@@ -6,7 +6,7 @@ Tags: woocommerce, authorize.net, woocommerce addon ,authorize.net for woocommer
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=nazrulhassan@ymail.com&item_name=Donation+Authorize.Net+Woocommerce+Addon
 Requires at least: 4.0
 Author: nazrulhassanmca
-Tested up to: 4.2.1 & Woocommerce 2.3.8
+Tested up to: 4.2.2 & Woocommerce 2.3.9
 Stable tag: 1.0
 License: GPLv2
 
@@ -55,6 +55,8 @@ This plugin uses AIM and is light weight version of https://wordpress.org/plugin
 6. This plugin does not store Card Details anywhere.
 7. You can check for Testing Card No Here http://developer.authorize.net/faqs/#testccnumbers
 8. This plugin requires CURL installed. 
+9. This plugin does not support Pre Order or Subscriptions 
+10. This plugin does not support Refunds in woocommmerce interface
 == Changelog ==
 This is first version no known errors found this is a replacement for https://wordpress.org/plugins/authorizenet-woocommerce-addon/  That shows Error Connecting Authorize.Net
 
