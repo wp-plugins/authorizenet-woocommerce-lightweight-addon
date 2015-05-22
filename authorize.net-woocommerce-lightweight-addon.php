@@ -9,6 +9,7 @@
  * License: GPLv2
  */
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 function authorizenet_lightweight_init()
 {
 	
@@ -28,7 +29,7 @@ function authorizenet_lightweight_init()
 		public function __construct()
 		{
 
-		$this->id               = 'authorizenetlightweight';
+		$this->id               = 'authorizenet_lightweight';
 		$this->icon             = apply_filters( 'woocommerce_authorizenet_lightweight_icon', plugins_url( 'images/authorizenet_lightweight.png' , __FILE__ ) );
 		$this->has_fields       = true;
 		$this->method_title     = 'Authorize.Net Lightweight Cards Settings';		
@@ -267,11 +268,11 @@ function authorizenet_lightweight_init()
 
 
 			$curlrequest = curl_init($gatewayurl); 
-			curl_setopt($curlrequest, CURLOPT_HEADER, 0); 				// set to 0 to eliminate header info from response
-			curl_setopt($curlrequest, CURLOPT_RETURNTRANSFER, 1); 		// Returns response data instead of TRUE(1)
-			curl_setopt($curlrequest, CURLOPT_POSTFIELDS, $post_string); 	// use HTTP POST to send form data
-			curl_setopt($curlrequest, CURLOPT_SSL_VERIFYPEER, FALSE); 		// uncomment this line if you get no gateway response.
-			$post_response = curl_exec($curlrequest);					// execute curl post and store results in $post_response
+			curl_setopt($curlrequest, CURLOPT_HEADER, 0); 			 // set to 0 to eliminate header info from response
+			curl_setopt($curlrequest, CURLOPT_RETURNTRANSFER, 1); 		 // Returns response data instead of TRUE(1)
+			curl_setopt($curlrequest, CURLOPT_POSTFIELDS, $post_string); // use HTTP POST to send form data
+			curl_setopt($curlrequest, CURLOPT_SSL_VERIFYPEER, TRUE); 	 // uncomment this line if you get no gateway response.
+			$post_response = curl_exec($curlrequest);				 // execute curl post and store results in $post_response
 			curl_close ($curlrequest);
 
 			 
