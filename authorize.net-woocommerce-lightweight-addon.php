@@ -117,7 +117,7 @@ function authorizenet_lightweight_init()
 			'authorizenet_lightweight_authorize_only' => array(
 			 'title'       => __( 'Authorize Only', 'woocommerce' ),
 			 'type'        => 'checkbox',
-			 'label'       => __( 'Enable Authorize Only Mode (Authorize & Capture If Unchecked)', 'wc-authorize-dpm' ),
+			 'label'       => __( 'Enable Authorize Only Mode (Authorize & Capture If Unchecked)', 'woocommerce' ),
 			 'description' => __( 'If checked will only authorize the credit card only upon checkout.', 'woocommerce' ),
 			 'desc_tip'      => true,
 			 'default'     => 'no',
