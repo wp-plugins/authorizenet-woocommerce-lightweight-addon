@@ -28,6 +28,8 @@ This plugin uses AIM and is light weight version of https://wordpress.org/plugin
 8. This plugin **does not store Credit Card Details**.
 9. MD5 Hash not neccesary as this plugin uses AIM http://developer.authorize.net/faqs/#md5
 10. Switch beetween Authorize or Authorize and Capture.
+11. Feature to accept the type of card you like.
+12. Code watch on <a href="https://github.com/syednazrulhasan/authorize.net-woocommerce-addon.git">Github</a>
 
 
 == Screenshots ==
