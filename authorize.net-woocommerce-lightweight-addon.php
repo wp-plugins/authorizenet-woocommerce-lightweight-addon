@@ -130,7 +130,7 @@ function authorizenet_lightweight_init()
 				'jcb'		    => 'JCB',
 				'dinersclub'       => 'Dinners Club',
 			 ),
-			 'default' => array( 'MasterCard', 'Visa', 'Discover', 'American Express' ),
+			 'default' => array( 'mastercard', 'visa', 'discover', 'amex' ),
 			),
 	  	);
   		}
