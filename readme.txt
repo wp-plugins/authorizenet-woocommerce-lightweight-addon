@@ -45,7 +45,7 @@ This plugin uses AIM and is light weight version of https://wordpress.org/plugin
 1. Upload 'authorize.net-woocommerce-lightweight-addon' folder to the '/wp-content/plugins/' directory
 2. Activate 'Authorize.Net WooCommerce Lightweight Addon' from wp plugin lists in admin area
 3. Plugin will appear in settings of woocommerce
-4. You can set the addon settings from wocommmerce->settings->Checkout->Authorize.Net Cards Settings
+4. You can set the addon settings from wocommmerce->settings->Checkout->Authorize.Net Lightweight Cards Settings 
 
 
 == Frequently Asked Questions ==
@@ -73,6 +73,7 @@ Other Resources That Might help
 == Changelog ==
 Error Connecting Authorize.Net on some servers
 This is a replacement for https://wordpress.org/plugins/authorizenet-woocommerce-addon/  That shows Error Connecting Authorize.Net
+See FAQ for solution of this issue.
 
 == Upgrade Notice == 
 This is first version no known notices yet
