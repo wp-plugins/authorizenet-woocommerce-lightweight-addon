@@ -223,6 +223,7 @@ function authorizenet_lightweight_init()
 				'x_city'                   => $wc_order->billing_city,
 				'x_zip'                    => $wc_order->billing_postcode,
 				'x_email'                  => $wc_order->billing_email,
+				'x_cust_id'			  => $wc_order->user_id,
 				'x_ship_to_first_name'     => $wc_order->shipping_first_name,
 				'x_ship_to_last_name'      => $wc_order->shipping_last_name,
 				'x_ship_to_company'        => $wc_order->shipping_company,
@@ -330,11 +331,15 @@ function authorizenet_lightweight_init()
 			$post_string = rtrim($post_string,"&");
 
 			$curlrequest   = curl_init($gatewayurl); 
-			curl_setopt($curlrequest, CURLOPT_HEADER, 0); 			 // set to 0 to eliminate header info from response
-			curl_setopt($curlrequest, CURLOPT_RETURNTRANSFER, 1); 		 // Returns response data instead of TRUE(1)
 			curl_setopt($curlrequest, CURLOPT_POSTFIELDS, $post_string); // use HTTP POST to send form data
-			curl_setopt($curlrequest, CURLOPT_SSL_VERIFYPEER, TRUE); 	 // uncomment this line if you get no gateway response.
-			$post_response = curl_exec($curlrequest);				 // execute curl post and store results in $post_response
+			curl_setopt($curlrequest, CURLOPT_HEADER, 0); 			 // set to 0 to eliminate header info from response
+			curl_setopt($curlrequest, CURLOPT_TIMEOUT, 45);
+			curl_setopt($curlrequest, CURLOPT_RETURNTRANSFER, 1); 		 // Returns response data instead of TRUE(1)
+			//determines whether libcurl verifies that the server cert is for the server it is known as     
+			curl_setopt($curlrequest, CURLOPT_SSL_VERIFYHOST, 2);  
+			//determines whether curl verifies the authenticity of the peer's certificate
+			curl_setopt($curlrequest, CURLOPT_SSL_VERIFYPEER, 1); 	     // Comment this line if you get no gateway response.
+			$post_response = curl_exec($curlrequest);				 
 			curl_close ($curlrequest);
 
 			$response_array = explode('|',$post_response);

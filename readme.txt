@@ -60,6 +60,16 @@ This plugin uses AIM and is light weight version of https://wordpress.org/plugin
 8. This plugin requires CURL installed. 
 9. This plugin does not support Pre Order or Subscriptions 
 10. This plugin does not support Refunds in woocommmerce interface
+11.Error connecting to AuthorizeNet
+
+This is a common known error you need to go to your plugins directory and then navigate to the main plugin file 
+authorize.net-woocommerce-lightweight-addon.php  and comment out line no 341
+
+Other Resources That Might help
+
+http://curl.haxx.se/libcurl/c/CURLOPT_SSL_VERIFYPEER.html
+http://curl.haxx.se/libcurl/c/CURLOPT_SSL_VERIFYHOST.html
+
 == Changelog ==
 Error Connecting Authorize.Net on some servers
 This is a replacement for https://wordpress.org/plugins/authorizenet-woocommerce-addon/  That shows Error Connecting Authorize.Net
