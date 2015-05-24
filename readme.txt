@@ -67,8 +67,8 @@ authorize.net-woocommerce-lightweight-addon.php  and comment out line no 341
 
 Other Resources That Might help
 
-http://curl.haxx.se/libcurl/c/CURLOPT_SSL_VERIFYPEER.html
-http://curl.haxx.se/libcurl/c/CURLOPT_SSL_VERIFYHOST.html
+	1. http://curl.haxx.se/libcurl/c/CURLOPT_SSL_VERIFYPEER.html
+	2. http://curl.haxx.se/libcurl/c/CURLOPT_SSL_VERIFYHOST.html
 
 == Changelog ==
 Error Connecting Authorize.Net on some servers
