@@ -14,7 +14,7 @@ License: GPLv2
 
 This plugin is an addon for WooCommerce to implement a payment gateway method for accepting **Credit Cards Payments** By merchants via **Authorize.Net** Gateway
 
-This plugin uses AIM and is light weight version of https://wordpress.org/plugins/authorizenet-woocommerce-addon/  Lightweight in sense it  does not use any Authorize.Net Libraries bundled with it it simply Uses CURL to pass data to payment gateway
+This plugin uses AIM and is light weight version of <a href="https://wordpress.org/plugins/authorizenet-woocommerce-addon/">this plugin</a> Lightweight in sense it  does not use any Authorize.Net Libraries bundled with it it simply Uses CURL to pass data to payment gateway
 
 
 = Features =
@@ -25,11 +25,10 @@ This plugin uses AIM and is light weight version of https://wordpress.org/plugin
 5. Can be customized easily.
 6. Can work with sandbox/live Authorize.Net accounts for testing purpose.
 7. This plugin currently **Supports accepting in USD**.
-8. This plugin **does not store Credit Card Details**.
-9. MD5 Hash not neccesary as this plugin uses AIM http://developer.authorize.net/faqs/#md5
+8. This plugin does not store **Credit Card Details**.
+9. <a href="http://developer.authorize.net/faqs/#md5">MD5 Hash</a> not neccesary as this plugin uses AIM 
 10. Switch beetween Authorize or Authorize and Capture.
 11. Feature to accept the type of card you like.
-12. Code watch on <a href="https://github.com/syednazrulhasan/authorize.net-woocommerce-addon.git">Github</a>
 
 
 == Screenshots ==
@@ -56,7 +55,7 @@ This plugin uses AIM and is light weight version of https://wordpress.org/plugin
 4. This plugin readily works on developmentment server.
 5. This plugin does not requires SSL.
 6. This plugin does not store Card Details anywhere.
-7. You can check for Testing Card No Here http://developer.authorize.net/faqs/#testccnumbers
+7. You can check for Testing Card No <a href="http://developer.authorize.net/faqs/#testccnumbers">Here</a>
 8. This plugin requires CURL installed. 
 9. This plugin does not support Pre Order or Subscriptions 
 10. This plugin does not support Refunds in woocommmerce interface
