@@ -371,12 +371,6 @@ function authorizenet_lightweight_init()
         
 		}// End of process_payment
 		
-		/*Process refund option*/
-		public function process_refund( $order_id, $amount = null ) 
-		{
-
-		
-		}// end of process_refund function()
 		
 		}// End of class WC_Authorizenet_Lightweight_Gateway
 	} // End if WC_Payment_Gateway
