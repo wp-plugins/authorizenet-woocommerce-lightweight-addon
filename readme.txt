@@ -14,7 +14,7 @@ License: GPLv2
 
 This plugin is an addon for WooCommerce to implement a payment gateway method for accepting **Credit Cards Payments** By merchants via **Authorize.Net** Gateway
 
-This plugin uses AIM and is light weight version of <a href="https://wordpress.org/plugins/authorizenet-woocommerce-addon/">this plugin</a> Lightweight in sense it  does not use any Authorize.Net Libraries bundled with it it simply Uses CURL to pass data to payment gateway
+This plugin uses AIM and is light weight version of <a target="_blank" href="https://wordpress.org/plugins/authorizenet-woocommerce-addon/">this plugin</a> Lightweight in sense it  does not use any Authorize.Net Libraries bundled with it it simply Uses CURL to pass data to payment gateway
 
 
 = Features =
