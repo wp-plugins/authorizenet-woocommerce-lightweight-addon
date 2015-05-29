@@ -43,8 +43,11 @@ function authorizenet_lightweight_init()
 		$this->authorizenet_lightweight_liveurl         = 'https://secure.authorize.net/gateway/transact.dll';
           $this->authorizenet_lightweight_testurl         = 'https://test.authorize.net/gateway/transact.dll';
          
-		define("AUTHORIZE_NET_SANDBOX", ($this->authorizenet_lightweight_sandbox =='yes'? true : false));
-		define("AUTHORIZE_NET_TRANSACTION_MODE",($this->authorizenet_lightweight_authorize_only =='yes'? 'AUTH_ONLY':'AUTH_CAPTURE'));
+		if(!defined("AUTHORIZE_NET_SANDBOX"))
+		{define("AUTHORIZE_NET_SANDBOX", ($this->authorizenet_lightweight_sandbox =='yes'? true : false));}
+		
+		if(!defined("AUTHORIZE_NET_TRANSACTION_MODE"))
+		{define("AUTHORIZE_NET_TRANSACTION_MODE",($this->authorizenet_lightweight_authorize_only =='yes'? 'AUTH_ONLY':'AUTH_CAPTURE'));}
 		
 		 if (is_admin()) 
 		 {
