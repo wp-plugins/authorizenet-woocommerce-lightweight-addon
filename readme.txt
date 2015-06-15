@@ -62,7 +62,7 @@ This plugin uses AIM and is light weight version of <a target="_blank" href="htt
 11. Error connecting to AuthorizeNet
 
 This is a common known error you need to go to your plugins directory and then navigate to the main plugin file 
-authorize.net-woocommerce-lightweight-addon.php  and comment out line no 342
+authorize.net-woocommerce-lightweight-addon.php  and comment out line no 344
 
 Other Resources That Might help
 
