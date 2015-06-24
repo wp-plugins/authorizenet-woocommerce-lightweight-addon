@@ -2,7 +2,7 @@
 Contributors: nazrulhassanmca
 Plugin Name: Authorize.Net WooCommerce Lightweight Addon
 Plugin URI: https://wordpress.org/plugins/authorizenet-woocommerce-lightweight-addon/
-Tags: woocommerce, authorize.net, woocommerce addon ,authorize.net for woocommerce,authorize.net for wordpress,credit card payment with Authorize.Net,authorize.net for woocommerce,authorize.net payment gateway for woocommerce
+Tags: woocommerce, authorize.net, woocommerce addon ,authorize.net for woocommerce,authorize.net for wordpress,credit card payment with Authorize.Net,authorize.net payment gateway for woocommerce,authorize.net for woocommerce,authorize.net payment gateway for woocommerce,wordpress wocommerce authorize.net,wordpress authorize.net wocommerce,authorize.net woocommerce plugin,authorize.net aim payment,authorize.net aim plugin wordpress,authorize.net woocommerce plugin,authorize.net payment gateway plugin,authorize.net aim payment gateway plugin,authorize.net payment gateway plugin for wordpress,authorize.net
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=nazrulhassan@ymail.com&item_name=Donation+Authorize.Net+Woocommerce+Addon
 Requires at least: 4.0 and WooCommerce 2.2+
 Author: nazrulhassanmca
