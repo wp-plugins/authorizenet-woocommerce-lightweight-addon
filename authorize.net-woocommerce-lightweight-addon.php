@@ -333,19 +333,26 @@ function authorizenet_lightweight_init()
 			}
 			$post_string = rtrim($post_string,"&");
 
-			$curlrequest   = curl_init($gatewayurl); 
-			curl_setopt($curlrequest, CURLOPT_POSTFIELDS, $post_string); // use HTTP POST to send form data
-			curl_setopt($curlrequest, CURLOPT_HEADER, 0); 			 // set to 0 to eliminate header info from response
-			curl_setopt($curlrequest, CURLOPT_TIMEOUT, 45);
-			curl_setopt($curlrequest, CURLOPT_RETURNTRANSFER, 1); 		 // Returns response data instead of TRUE(1)
-			//determines whether libcurl verifies that the server cert is for the server it is known as     
-			curl_setopt($curlrequest, CURLOPT_SSL_VERIFYHOST, 2);  
-			//determines whether curl verifies the authenticity of the peer's certificate
-			curl_setopt($curlrequest, CURLOPT_SSL_VERIFYPEER, 1); 	     // Comment this line if you get no gateway response.
-			$post_response = curl_exec($curlrequest);				 
-			curl_close ($curlrequest);
-
-			$response_array = explode('|',$post_response);
+			/*HTTP POST API*/
+				$response = wp_remote_post( $gatewayurl, array(
+					'method'       => 'POST',
+					'body'         => $post_string,
+					'redirection'  => 0,
+					'timeout'      => 70,
+					'sslverify'    => false,
+				) );
+			
+				if ( is_wp_error( $response ) ) throw new Exception( __( 'Problem connecting to the payment gateway.', 'woocommerce' ) );
+			
+				if ( empty( $response['body'] ) ) throw new Exception( __( 'Empty Authorize.net response.','woocommerce') );
+			
+				$content = $response['body'];
+				foreach ( preg_split("/\r?\n/", $content) as $line ) {
+					if ( preg_match("/^1|2|3\|/", $line ) ) {
+						$response_array = explode( "|", $line );
+					}
+				}
+				/*HTTP POST API */
 
 		if ( count($response_array) > 1 )
 		{
