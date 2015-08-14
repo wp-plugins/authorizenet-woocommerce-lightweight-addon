@@ -14,7 +14,7 @@ License: GPLv2
 
 This plugin is an addon for WooCommerce to implement a payment gateway method for accepting **Credit Cards Payments** By merchants via **Authorize.Net** Gateway
 
-This plugin uses AIM and is light weight version of <a target="_blank" href="https://wordpress.org/plugins/authorizenet-woocommerce-addon/">this plugin</a> Lightweight in sense it  does not use any Authorize.Net Libraries bundled with it it simply Uses CURL to pass data to payment gateway
+This plugin uses AIM and is light weight version of <a target="_blank" href="https://wordpress.org/plugins/authorizenet-woocommerce-addon/">this plugin</a> Lightweight in sense it  does not use any Authorize.Net Libraries bundled with it it simply Uses HTTP POST API to pass data to payment gateway
 
 
 = Features =
@@ -56,18 +56,9 @@ This plugin uses AIM and is light weight version of <a target="_blank" href="htt
 5. This plugin does not requires SSL.
 6. This plugin does not store Card Details anywhere.
 7. You can check for Testing Card No <a href="http://developer.authorize.net/faqs/#testccnumbers">Here</a>
-8. This plugin requires CURL installed. 
-9. This plugin does not support Pre Order or Subscriptions 
-10. This plugin does not support Refunds in woocommmerce interface
-11. Error connecting to AuthorizeNet
+8. This plugin does not support Pre Order or Subscriptions 
+9. This plugin does not support Refunds in woocommmerce interface
 
-This is a common known error you need to go to your plugins directory and then navigate to the main plugin file 
-authorize.net-woocommerce-lightweight-addon.php  and comment out line no 344
-
-Other Resources That Might help
-
-	1. http://curl.haxx.se/libcurl/c/CURLOPT_SSL_VERIFYPEER.html
-	2. http://curl.haxx.se/libcurl/c/CURLOPT_SSL_VERIFYHOST.html
 
 == Changelog ==
 Error Connecting Authorize.Net on some servers
